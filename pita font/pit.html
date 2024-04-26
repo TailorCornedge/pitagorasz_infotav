@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="hu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pit of Gorasz</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Noto+Sans+JP:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9+Charted&family=Jersey+10&family=Noto+Sans+JP:wght@100..900&display=swap');
+        .font1 {
+            font-family: 'Nosifer', cursive;
+        }
+        
+        #triangle {
+            width: 0;
+            height: 0;
+            border-left: 0px solid transparent;
+            border-right: 200px solid transparent;
+            border-bottom: 100px solid #555;
+        }
+        .jersey-10-regular {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .jacquarda-bastarda-9-charted-regular {
+  font-family: "Jacquarda Bastarda 9 Charted", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+    </style>
+</head>
+
+<body>
+
+    <h1 class="jersey-10-regular">Pitagorasz tétel számoló oldal szerűség valami dolog ami nagyon szép és jó meg minden ilyesmi szóval ja</h1>
+<table>
+    <tr>
+        <th>    <img src="FI_511010902_szakiskola_9_NKP-116b.png" alt="Derékszögű háromszög"></th>
+        <th>    <form action="javascript:void(0)">
+            <fieldset style="width: 50%;">
+                <br>
+                <legend>Oldalt adjá!</legend>
+                <label for="a">a oldal:</label>
+                <input class="font1" type="text" name="pit" id="a"><br>
+                <label for="b">b oldal:</label>
+                <input class="font1" type="text" name="pit" id="b"><br>
+                <label for="c">c oldal:</label>
+                <input class="font1" type="text" name="pit" id="c" style="color: red;"><br><br>
+                <input type="button" name="pit" value="Reset and do a pacifist" onclick="torles()">
+                <input type="button" name="pit" value="Submit your will and mind" onclick="megjel()">
+            </fieldset>
+        </form></th>
+    </tr>
+</table>
+    <br>
+
+    <p class="jacquarda-bastarda-9-charted-regular">A tétel. Bármely derékszögű háromszög leghosszabb oldalának (átfogójának) négyzete megegyezik a másik két oldal
+        (a befogók) négyzetösszegével. Tehát: ha egy háromszög derékszögű, akkor a leghosszabb oldalára emelt négyzet
+        területe a másik két oldalra emelt négyzetek területének összegével egyenlő.</p>
+
+    <script>
+        function szamol() {
+            if (a.value != 0 && b.value != 0) {
+                c.value = Math.sqrt((a.value * a.value) + (b.value * b.value));
+                document.getElementById("c").style.color = "red";
+
+            } else if (a.value != 0 && c.value != 0) {
+                b.value = Math.sqrt((c.value * c.value) - (a.value * a.value));
+                document.getElementById("b").style.color = "red";
+            } else if (b.value != 0 && c.value != 0) {
+                a.value = Math.sqrt((c.value * c.value) - (b.value * b.value));
+                document.getElementById("a").style.color = "red";
+            }
+
+            const haromszog = document.getElementById("triangle");
+            haromszog.style = "border-left:" + 0 + "px solid transparent;" +
+                "border-right:" + b.value * 10 + "px solid transparent;" +
+                "border-bottom:" + a.value * 10 + "px solid pink;";
+
+
+        }
+
+        function torles() {
+            a.value = "";
+            b.value = "";
+            c.value = "";
+            document.location.reload();
+        }
+        function megjel(){
+            szamol()
+        }
+    </script>
+
+
+
+</body></html>
